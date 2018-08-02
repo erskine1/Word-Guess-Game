@@ -3,17 +3,12 @@
   <head>
     <meta charset="UTF-8">
     <title>question</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/style.css"> -->
   </head>
   <body>
 
-    <h1>The Psychic Game</h1>
-
-    <p>Guess what letter I'm thinking of</p>
-
-    <p id="wins"></p>
-    <p id="losses"></p>
-    <p id="lives"></p>
-    <p id="guesses"></p>
+    <h1>word guess</h1>
 
     <!-- <script src="assets/javascript/game.js"> -->
     <script>
@@ -27,6 +22,57 @@
       // Display the answer to the user when they lose
     // use arrays for the word list as well as the answer
     // use a for loop to update based on user guesses
+
+    // game is object
+
+    var game = {
+      wins: 0,
+      losses: 0,
+      guesses: 9,
+      guessArray: [],
+      answerArray: [],
+      // do I need another array?
+      wordArray: [
+        "testing",
+        "placeholder",
+        "captain",
+        "third",
+        "ending"
+      ],
+
+      // use this to refer to object inside itself
+      // Function for selecting a random word from wordArray
+      // Fills answerArray with the correct number of underscores
+      pickWord: function() {
+
+      }
+
+    };
+
+    
+    var p = "placeholder";
+
+    document.onkeyup = function (event) {
+
+      var guess = event.key;
+
+      // Right now this is logging the guess for EACH letter of the word placeholder
+      // ie. guessing "r" returns 10 counts of wrong and 1 count of yes
+      // Checks if user hits a letter key
+      if (guess >= "a" && guess <= "z") {
+        // checks if user's guess matches a letter from the answerArray
+        for (var i = 0; i < p.length; i++) {
+          if (guess === p.charAt(i)) {
+            console.log("You guessed " + guess + ", which is a letter in " + p);
+          }
+          else {
+            console.log("You guessed " + guess + ", which is not a letter in " + p);
+          }
+        }
+        
+
+      }
+    };
 
 
     
