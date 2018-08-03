@@ -82,14 +82,10 @@ document.onkeyup = function (event) {
       // var index = splitAns.indexOf(guess);
       // var lastIndex = splitAns.lastIndexOf(guess);
 
-      function getIndexes(arr, val) {
-        var indexes = [], i;
-        for (var  i = 0; i < splitAns.length; i++) {
-          if (arr[i] === val)
-            indexes.push(i);
-          return indexes;
-          // update();
-          // counter++;
+      for (var i = 0; i < splitAns.length; i++) {
+        if (guess === splitAns[i]) {
+          answerArray.splice(i, 1, guess);
+          update();
         }
       }
 
