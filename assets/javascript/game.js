@@ -39,7 +39,7 @@ answer = possible[Math.floor(Math.random() * possible.length)];
 answerIndex = possible.indexOf(answer);
 splitAns = answer.split(""); 
 answerArray = Array(splitAns.length).fill("_");
-lives = 10; 
+lives = 12; 
 guessArray = [];
 counter = 0;
 
