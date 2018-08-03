@@ -70,7 +70,8 @@ function gameOver() {
     document.querySelector("#lives").innerHTML = "You win!";
   }
   else if (lives === 0) {
-    document.querySelector("#lives").innerHTML = "Game over.";
+    document.querySelector("#lives").innerHTML = "Nope! Game over.";
+    document.querySelector("#answerArray").innerHTML = answer;
     }
 };
 
