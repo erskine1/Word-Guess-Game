@@ -1,7 +1,7 @@
 // Word Guess Game (Hangman)    
     
 
-var possible = [
+possible = [
   "joked",
   "foxes",
   "zapped",
@@ -33,13 +33,19 @@ var possible = [
   "ouroboros",
   "curiosity"
 ];
-var answer = possible[Math.floor(Math.random() * possible.length)];
-var answerIndex = possible.indexOf(answer);
-var splitAns = answer.split(""); 
-var answerArray = Array(splitAns.length).fill("_");
-var lives = 10; 
-var guessArray = [];
-var counter = 0;
+
+play = function () {
+answer = possible[Math.floor(Math.random() * possible.length)];
+answerIndex = possible.indexOf(answer);
+splitAns = answer.split(""); 
+answerArray = Array(splitAns.length).fill("_");
+lives = 10; 
+guessArray = [];
+counter = 0;
+
+}
+
+play(); 
 
 // function getWord() {
 //   var answer = possible[Math.floor(Math.random() * possible.length)];
@@ -54,6 +60,8 @@ function update() {
   document.querySelector("#answerArray").innerHTML = answerArray.join(' ');
 };
 
+update();
+
 function gameOver() {
   if (counter === splitAns.length && lives > 0) {
     document.querySelector("#lives").innerHTML = "You win!";
@@ -65,8 +73,13 @@ function gameOver() {
     document.querySelector("#lives").innerHTML = "Game over.";
     }
 };
-    
-update();
+
+// Updates the dom with the values from play function
+function reset() {
+  document.querySelector("#lives").innerHTML = lives;
+  document.querySelector("#answerArray").innerHTML = answerArray.join(' ');
+  document.querySelector("#guessArray").innerHTML = guessArray;
+}
 
 document.onkeyup = function (event) {
 
@@ -105,9 +118,10 @@ document.onkeyup = function (event) {
 
 };
 
+// (Play Again) reset button
 document.getElementById("reset").addEventListener("mouseup", function () {
   possible.splice(answerIndex, 1);
   answer = possible[Math.floor(Math.random() * possible.length)];
-  // splitAns = answer.split("");
-  // answerArray = Array(splitAns.length).fill("_");
+  play();
+  reset();
 });
