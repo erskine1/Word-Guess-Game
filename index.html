@@ -8,24 +8,36 @@
     <!-- <link rel="stylesheet" type="text/css" href="assets/css/style.css"> -->
   </head>
   <body>
+    <div class="container">
 
     <div class="jumbotron text-center">
-      <h1>Word Guess Game (Hangman)</h1>
-    
-      <h2>Current word:</h2>
-      <p id="answerArray"></p>
-    
-      <h3>Guesses remaining:</h3>
-      <p id="lives"></p>
-   
-      <h3>Your guesses:</h3>
-      <p id="guessArray"></p>
+      <div class="row">
+        <div class="card text-white bg-dark mb-3 col-sm-3" style="max-width: 18rem;">
+          <img class="card-img-top" src="https://cdn.drawception.com/images/panels/2017/11-15/4HjkgRynd4-8.png" alt="shrug">
+          <div class="card-body">
+            <p class="card-text">ignorance is a slow and insidious killer</p>
+          </div>
+        </div>
 
-      <a class="btn btn-dark btn-lg" href="#" id="reset" role="button">Play Again</a>
+        <div class="col-sm-9 text-center">
+          <h1>Word Guess Game (Hangman)</h1>
+    
+          <h2>Current word:</h2>
+          <p id="answerArray"></p>
+    
+          <h3>Guesses remaining:</h3>
+          <p id="lives"></p>
+   
+          <h3>Your guesses:</h3>
+          <p id="guessArray"></p>
+
+          <a class="btn btn-dark btn-lg" href="#" id="reset" role="button">Play Again</a>
+      </div>
     </div>
+  </div>
+
 
     <!-- Linking javascript -->
     <script src="assets/javascript/game.js"></script>
-
   </body>
 </html>

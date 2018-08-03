@@ -119,6 +119,7 @@ document.onkeyup = function (event) {
 };
 
 // (Play Again) reset button
+// Removes the current answer from the list of possible answers
 document.getElementById("reset").addEventListener("mouseup", function () {
   possible.splice(answerIndex, 1);
   answer = possible[Math.floor(Math.random() * possible.length)];
