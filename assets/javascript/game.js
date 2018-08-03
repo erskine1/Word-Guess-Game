@@ -46,12 +46,15 @@ function update() {
 };
 
 function gameOver() {
-  if (lives === 0) {
-  document.querySelector("#lives").innerHTML = "Game over.";
-  }
-  else if (counter = splitAns.length) {
+  if (counter === splitAns.length && lives > 0) {
     document.querySelector("#lives").innerHTML = "You win!";
   }
+  else if (counter === splitAns.length && lives === 0) {
+    document.querySelector("#lives").innerHTML = "You win!";
+  }
+  else if (lives === 0) {
+    document.querySelector("#lives").innerHTML = "Game over.";
+    }
 };
     
 update();
@@ -76,7 +79,9 @@ document.onkeyup = function (event) {
       for (var i = 0; i < splitAns.length; i++) {
         if (guess === splitAns[i]) {
           answerArray.splice(i, 1, guess);
+          counter++;
           update();
+          gameOver();
         }
       }    
     }
