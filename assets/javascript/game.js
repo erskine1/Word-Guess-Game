@@ -34,6 +34,7 @@ var possible = [
   "curiosity"
 ];
 var answer = possible[Math.floor(Math.random() * possible.length)];
+var answerIndex = possible.indexOf(answer);
 var splitAns = answer.split(""); 
 var answerArray = Array(splitAns.length).fill("_");
 var lives = 10; 
@@ -47,12 +48,6 @@ var counter = 0;
 // }
 
 // getWord();
-
-document.getElementById("reset").onClick = function () {
-  var answerIndex = possible.indexOf(answer);
-  possible.splice(answerIndex, 1);
-  getWord();
-}
 
 function update() {
   document.querySelector("#lives").innerHTML = lives;
@@ -110,3 +105,9 @@ document.onkeyup = function (event) {
 
 };
 
+document.getElementById("reset").addEventListener("mouseup", function () {
+  possible.splice(answerIndex, 1);
+  answer = possible[Math.floor(Math.random() * possible.length)];
+  // splitAns = answer.split("");
+  // answerArray = Array(splitAns.length).fill("_");
+});
