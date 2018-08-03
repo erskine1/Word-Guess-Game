@@ -1,7 +1,15 @@
 // Word Guess Game (Hangman)    
     
 var score;
-var answer = "placeholder";
+var possible = [
+  "placeholder",
+  "random",
+  "words",
+  "because",
+  "thinking",
+  "difficult"
+];
+var answer = possible[Math.floor(Math.random() * possible.length)];
 var splitAns = answer.split(""); 
 var answerArray = Array(splitAns.length).fill("_");
 var lives = 10; 
@@ -33,8 +41,10 @@ document.onkeyup = function (event) {
     // checks if guess is in the answer
     if (splitAns.indexOf(guess) > -1) {
       lives--;
+      
       console.log(guess + " is a letter in " + answer);
       console.log(splitAns.indexOf(guess));
+
       var index = splitAns.indexOf(guess); // gives index of answer
       var lastIndex = splitAns.lastIndexOf(guess);
 
