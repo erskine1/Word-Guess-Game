@@ -29,8 +29,8 @@
       wins: 0,
       losses: 0,
       guesses: 9,
-      guessArray: [],
-      answerArray: [],
+      // guessArray: [],
+      // answerArray: [],
       // do I need another array?
       wordArray: [
         "testing",
@@ -43,36 +43,60 @@
       // use this to refer to object inside itself
       // Function for selecting a random word from wordArray
       // Fills answerArray with the correct number of underscores
-      pickWord: function() {
+      // pickWord: function() {
 
-      }
+      // }
 
     };
 
-    
-    var p = "placeholder";
+    // function checkWord() {
+    //   var guess = event.key; 
+    //   var p = makeArray.indexOf(guess);
+    //   if (i > -1) {
+    //     guessArray.push(guess);
+    //   }
+    //   else {
+    //     console.log
+    //   }
+    // }
+
+
+    var guessArray = [];
+    var answer = "placeholder";
+    var ansArray = answer.split(""); 
 
     document.onkeyup = function (event) {
-
       var guess = event.key;
 
-      // Right now this is logging the guess for EACH letter of the word placeholder
-      // ie. guessing "r" returns 10 counts of wrong and 1 count of yes
-      // Checks if user hits a letter key
+      // checks if guess is a letter
       if (guess >= "a" && guess <= "z") {
-        // checks if user's guess matches a letter from the answerArray
-        for (var i = 0; i < p.length; i++) {
-          if (guess === p.charAt(i)) {
-            console.log("You guessed " + guess + ", which is a letter in " + p);
-          }
-          else {
-            console.log("You guessed " + guess + ", which is not a letter in " + p);
-          }
+
+        // checks if guess is in the answer
+        if (ansArray.indexOf(guess) > -1) {
+          console.log(guess + " is a letter in " + answer);
         }
+        else {
+          console.log(guess + " is not a letter in " + answer);
+        }
+      }      
+
+    };
+
+        // guessArray.push(guess); 
+        // makeArray.indexOf(guess);
+
+
+        // for (var i = 0; i < test.length; i++) {
+        //   if (guess === test.charAt(i)) {
+        //     console.log("You guessed " + guess + ", which is a letter in " + test);
+        //   }
+        //   else {
+        //     console.log("You guessed " + guess + ", which is not a letter in " + test);
+        //   }
+        // }
         
 
-      }
-    };
+
 
 
     
