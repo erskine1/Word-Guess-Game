@@ -9,6 +9,15 @@
   <body>
 
     <h1>word guess</h1>
+    <br>
+    <h2>current word</h2>
+    <p id="answerArray"></p>
+    <br>
+    <h3>guesses remaining</h3>
+    <p id="lives"></p>
+    <br>
+    <h3>Your guesses:</h3>
+    <p id="guessArray"></p>
 
     <!-- <script src="assets/javascript/game.js"> -->
     <script>
@@ -25,20 +34,21 @@
 
     // game is object
 
-    var game = {
-      wins: 0,
-      losses: 0,
-      guesses: 9,
-      // guessArray: [],
-      // answerArray: [],
-      // do I need another array?
-      wordArray: [
-        "testing",
-        "placeholder",
-        "captain",
-        "third",
-        "ending"
-      ],
+    // var game = {
+    //   wins: 0,
+    //   losses: 0,
+    //   lives: 10,
+    //   correct: 0,
+    //   // guessArray: [],
+    //   // answerArray: [],
+    //   // do I need another array?
+    //   wordArray: [
+    //     "testing",
+    //     "placeholder",
+    //     "captain",
+    //     "third",
+    //     "ending"
+    //   ],
 
       // use this to refer to object inside itself
       // Function for selecting a random word from wordArray
@@ -47,7 +57,11 @@
 
       // }
 
-    };
+    //   update: function() {
+    //     document.querySelector("#guesses").innerHTML = "Your guesses: " + guessArray.join(', ');
+    //   }
+
+    // };
 
     // function checkWord() {
     //   var guess = event.key; 
@@ -60,23 +74,35 @@
     //   }
     // }
 
-
-    var guessArray = [];
+    var score;
     var answer = "placeholder";
-    var ansArray = answer.split(""); 
+    var splitAns = answer.split(""); 
+    var answerArray;
+    var lives;
+    var guessArray = []; // Needs to be defined from the start. Can set this under a play/reset function later.
+    
+    
+    
 
     document.onkeyup = function (event) {
+
       var guess = event.key;
+      var noRepeat = guessArray.indexOf(guess);
 
       // checks if guess is a letter
-      if (guess >= "a" && guess <= "z") {
+      if (guess >= "a" && guess <= "z" && noRepeat < 0) {
+        guessArray.push(guess);
+        document.querySelector("#guessArray").innerHTML = guessArray.join(', ');
 
         // checks if guess is in the answer
-        if (ansArray.indexOf(guess) > -1) {
+        if (splitAns.indexOf(guess) > -1) {
           console.log(guess + " is a letter in " + answer);
+          
         }
         else {
           console.log(guess + " is not a letter in " + answer);
+          // guessArray.push(guess);
+
         }
       }      
 
