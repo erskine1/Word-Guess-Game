@@ -77,7 +77,7 @@
     var score;
     var answer = "placeholder";
     var splitAns = answer.split(""); 
-    var answerArray;
+    var answerArray = Array(splitAns.length).fill("_");
     var lives;
     var guessArray = []; // Needs to be defined from the start. Can set this under a play/reset function later.
     
@@ -101,7 +101,6 @@
         }
         else {
           console.log(guess + " is not a letter in " + answer);
-          // guessArray.push(guess);
 
         }
       }      
