@@ -33,8 +33,7 @@ var possible = [
   "ouroboros",
   "curiosity"
 ];
-// var answer = possible[Math.floor(Math.random() * possible.length)];
-var answer = "ouroboros";
+var answer = possible[Math.floor(Math.random() * possible.length)];
 var splitAns = answer.split(""); 
 var answerArray = Array(splitAns.length).fill("_");
 var lives = 10; 
@@ -74,30 +73,12 @@ document.onkeyup = function (event) {
       console.log(guess + " is a letter in " + answer);
       console.log(splitAns.indexOf(guess));
 
-      // function eachIndex(arr, index) {
-      //   var 
-      // }
-
-      // index of answer
-      // var index = splitAns.indexOf(guess);
-      // var lastIndex = splitAns.lastIndexOf(guess);
-
       for (var i = 0; i < splitAns.length; i++) {
         if (guess === splitAns[i]) {
           answerArray.splice(i, 1, guess);
           update();
         }
-      }
-
-      // backing this up
-      // for (var  i = 0; i < answerArray.length; i++) {
-      //   answerArray.splice(index, 1, guess);
-      //   answerArray.splice(lastIndex, 1, guess);
-      //   update();
-      //   counter++;
-      // }
-
-    
+      }    
     }
     else {
       lives--;
