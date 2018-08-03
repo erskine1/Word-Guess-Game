@@ -1,6 +1,6 @@
 // Word Guess Game (Hangman)    
     
-var score;
+
 var possible = [
   "joked",
   "foxes",
@@ -37,8 +37,22 @@ var answer = possible[Math.floor(Math.random() * possible.length)];
 var splitAns = answer.split(""); 
 var answerArray = Array(splitAns.length).fill("_");
 var lives = 10; 
-var guessArray = []; // Needs to be defined from the start. Can set this under a play/reset function later.
+var guessArray = [];
 var counter = 0;
+
+// function getWord() {
+//   var answer = possible[Math.floor(Math.random() * possible.length)];
+//   var splitAns = answer.split(""); 
+//   var answerArray = Array(splitAns.length).fill("_");
+// }
+
+// getWord();
+
+document.getElementById("reset").onClick = function () {
+  var answerIndex = possible.indexOf(answer);
+  possible.splice(answerIndex, 1);
+  getWord();
+}
 
 function update() {
   document.querySelector("#lives").innerHTML = lives;
@@ -65,7 +79,7 @@ document.onkeyup = function (event) {
   var noRepeat = guessArray.indexOf(guess);
 
   // checks if guess is a letter
-  if (guess >= "a" && guess <= "z" && lives > 0 && noRepeat < 0) {
+  if (guess >= "a" && guess <= "z" && lives > 0 && noRepeat < 0 && counter != splitAns.length) {
     guessArray.push(guess);
     document.querySelector("#guessArray").innerHTML = guessArray.join(', ');
 
@@ -85,6 +99,7 @@ document.onkeyup = function (event) {
         }
       }    
     }
+
     else {
       lives--;
       update();
@@ -94,3 +109,4 @@ document.onkeyup = function (event) {
   }
 
 };
+
