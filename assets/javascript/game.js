@@ -94,7 +94,6 @@ document.onkeyup = function (event) {
 
     // checks if guess is in the answer
     if (splitAns.indexOf(guess) > -1) {
-      lives--;
       
       console.log(guess + " is a letter in " + answer);
       console.log(splitAns.indexOf(guess));
